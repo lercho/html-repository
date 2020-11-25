@@ -1,0 +1,198 @@
+.container-1 {
+    font-family: 'Rubik';
+    height: 100vh;
+    background-image: url(../img/background-banner.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .banner-text {
+        width: 40%;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        .text-wrapper {
+            p.main-heading {
+                font-size: 46px;
+                font-weight: bold;
+            }
+
+            p.secondary-heading {
+                font-size: 28px;
+            }
+        }
+
+        a.register {
+            display: block;
+            margin: 24px 0;
+            padding: 6px 24px;
+            background-image: linear-gradient(to bottom, #6bc8fd, #209be2);
+            border: 1px solid transparent;
+            border-radius: 40px;
+            font-size: 24px;
+            text-decoration: none;
+
+            &:hover {
+                box-shadow: 0 0 50px 1px #ffffff, 0 0 20px rgb(36, 176, 255);
+            }
+
+            &:focus {
+                outline: none;
+                background-image: linear-gradient(to top, #6bc8fd, #209be2);
+                box-shadow: 0 0 10px 1px #ffffff;
+            }
+
+            p {
+                vertical-align: text-bottom;
+                font-weight: bold;
+                color: white;
+                text-shadow: 2px 2px 10px rgb(117, 117, 117);
+            }
+        }
+    }
+
+    .banner-picture {
+        height: 60%;
+        position: relative;
+
+        img.main-picture {
+            display: block;
+            height: 100%;
+            position: relative;
+            z-index: 4;
+        }
+
+        $circle-height: 30vh;
+
+    @mixin circle-properties($b-width, $b-color, $sh-color) {
+        border: $b-width solid $b-color;
+        border-radius: 50%;
+        box-shadow: 0 0 50px rgb(255, 255, 255), inset 0 0 50px rgb(255, 255, 255), 0 0 20px $sh-color, inset 0 0 20px $sh-color, 0 0 5px $sh-color, inset 0 0 5px $sh-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .circles {
+            .top-large {
+                @include circle-properties(10px, #ebfcfd, #39f2ff);
+                width: 1.3 * $circle-height;
+                height: 1.3 * $circle-height;
+                position: absolute;
+                top: -12%;
+                right: -15%;
+                z-index: 1;
+
+                .top-small {
+                    @include circle-properties(8px, #ffe7fa, #FF66DD);
+                    width: $circle-height;
+                    height: $circle-height;
+                }
+            }
+
+            .bottom-large {
+                @include circle-properties(10px, #ebfcfd, #39f2ff);
+                width: 1.3 * 1.3 * $circle-height;
+                height: 1.3 * 1.3 * $circle-height;
+                position: absolute;
+                bottom: -20%;
+                left: -20%;
+                z-index: 1;
+
+                .bottom-small {
+                    @include circle-properties(8px, #ffe7fa, #FF66DD);
+                    width: 1.3 * $circle-height;
+                    height: 1.3 * $circle-height;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container-1 {
+        height: unset;
+        background-position-x: center;
+        background-size: 300% 100%;
+        padding: 22% 0;
+        flex-direction: column-reverse;
+
+        .banner-text {
+            width: 90%;
+            align-items: center;
+
+            p.main-heading {
+                margin-top: 28px;
+                font-size: 30px;
+            }
+
+            p.secondary-heading {
+                font-size: 20px;
+            }
+
+            button.register {
+                padding: 8px 32px;
+                font-size: 20px;
+            }
+        }
+
+        $circle-height: 30vw;
+
+        @mixin circle-properties($b-width, $b-color, $sh-color) {
+            border: $b-width solid $b-color;
+            border-radius: 50%;
+            box-shadow: 0 0 60px rgb(255, 255, 255), inset 0 0 30px rgb(255, 255, 255), 0 0 10px $sh-color, inset 0 0 10px $sh-color, 0 0 4px $sh-color, inset 0 0 4px $sh-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-picture {
+            height: auto;
+            width: 40%;
+
+            img.main-picture {
+                width: 100%;
+            }
+
+            .circles {
+                .top-large {
+                    @include circle-properties(8px, #ebfcfd, #39f2ff);
+                    width: 1.4 * $circle-height;
+                    height: 1.4 * $circle-height;
+                    position: absolute;
+                    top: -10%;
+                    right: -40%;
+                    z-index: 1;
+
+                    .top-small {
+                        @include circle-properties(6px, #ffe7fa, #FF66DD);
+                        width: $circle-height;
+                        height: $circle-height;
+                    }
+                }
+
+                .bottom-large {
+                    @include circle-properties(8px, #ebfcfd, #39f2ff);
+                    width: 1.3 * 1.3 * $circle-height;
+                    height: 1.3 * 1.3 * $circle-height;
+                    position: absolute;
+                    bottom: -15%;
+                    left: -50%;
+                    z-index: 1;
+
+                    .bottom-small {
+                        @include circle-properties(6px, #ffe7fa, #FF66DD);
+                        width: 1.3 * $circle-height;
+                        height: 1.3 * $circle-height;
+                    }
+                }
+            }
+        }
+    }
+}
